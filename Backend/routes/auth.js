@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
       res.json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role } });
     });
   } catch (err) {
-    console.error(err.message);
+    console.error(err.message,"in console");
     res.status(500).send('Server error');
   }
 });
