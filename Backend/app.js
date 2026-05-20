@@ -10,17 +10,20 @@ const taskRoutes = require('./routes/tasks');
 const app = express();
 
 const allowedOrigins = [
-  'http://localhost:5173',                
-];
+  'http://localhost:5173',
+  process.env.FRONTEND_URL,
+  ...(process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : [])
+].filter(Boolean);
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+    if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV === 'production') {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
     }
-  }
+  },
+  credentials: true,
 }));
 
 app.use(express.json());
