@@ -14,12 +14,12 @@ export default function AdminDashboard() {
   const config = { headers: { 'x-auth-token': token } };
 
   const fetchUsers = async () => {
-    const res = await axios.get('https://team-task-traker-1.onrender.com/api/users', config);
+    const res = await axios.get('https://team-task-traker-backend-tgwk.onrender.com/api/users', config);
     setUsers(res.data);
   };
 
   const fetchTasks = async () => {
-    const res = await axios.get('https://team-task-traker-1.onrender.com/api/tasks', config);
+    const res = await axios.get('https://team-task-traker-backend-tgwk.onrender.com/api/tasks', config);
     setTasks(res.data);
   };
 

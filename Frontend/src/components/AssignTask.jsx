@@ -8,7 +8,7 @@ export default function AssignTask({ users, onTaskAssigned }) {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('https://team-task-traker-1.onrender.com/api/tasks', form, {
+      await axios.post('https://team-task-traker-backend-tgwk.onrender.com/api/tasks', form, {
         headers: { 'x-auth-token': token }
       });
       setForm({ title: '', description: '', assignedTo: '' });

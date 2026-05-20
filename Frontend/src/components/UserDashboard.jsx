@@ -7,7 +7,7 @@ export default function UserDashboard() {
 
   const fetchTasks = async () => {
     const token = localStorage.getItem('token');
-    const res = await axios.get('https://team-task-traker-1.onrender.com/api/tasks/my', {
+    const res = await axios.get('https://team-task-traker-backend-tgwk.onrender.com/api/tasks/my', {
       headers: { 'x-auth-token': token }
     });
     setTasks(res.data);
@@ -19,7 +19,7 @@ export default function UserDashboard() {
 
   const updateStatus = async (taskId, newStatus) => {
     const token = localStorage.getItem('token');
-    await axios.put(`https://team-task-traker-1.onrender.com/api/tasks/${taskId}/status`,
+    await axios.put(`https://team-task-traker-backend-tgwk.onrender.com/api/tasks/${taskId}/status`,
       { status: newStatus },
       { headers: { 'x-auth-token': token } }
     );

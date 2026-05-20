@@ -9,7 +9,7 @@ export default function CreateUser({ onUserCreated }) {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('https://team-task-traker-1.onrender.com/api/users', form, {
+      await axios.post('https://team-task-traker-backend-tgwk.onrender.com/api/users', form, {
         headers: { 'x-auth-token': token }
       });
       setMsg('User created successfully!');
